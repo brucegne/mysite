@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>My first flask site</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="text/javascript" src="https://brucegne.cloudant.com/_utils/script/jquery.couch.js"></script>
+<script type="text/javascript" src="/static/scripts/app.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/app.css" />
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<script type="text/javascript">
+$(document).ready(function(){
+//   alert( 'Welcome' );
+});
+
+
+</script>
+</head>
+<body>
+<h2 style="font-family: serif; font-size: 12pt;">Welcome to Flask ! Showing {{ dLen }} records</h2>
+<div class="container">
+{% for rec in dta %}
+<div class="colLeft">{{ rec.id }}</div>
+<div class="colRight">{{ rec.fullname }}</div>
+{% endfor %}
+</div>
+<div class="container wide">
+<input type="button" onClick="javascript:showIt();" value="Test" />
+<form name="frm" method="post" action="/new">
+<pre>
+ID   <input type="text" name="id" size="10" />
+Name <input type="text" name="fn" size="35" />
+
+<input type="submit" value="Save" />
+</pre>
+</form>
+<form name="upload" method="post" enctype="multipart/form-data" action="/upload">
+<input type="file" name="the_file" />
+<input type="submit" value="Upload" />
+</form>
+</div>
+<div class="container">
+{% for filename in fList %}
+<a href="/static/uploads/{{ filename }}" target="_blank"><img src="/static/uploads/{{ filename }}" width="50px" border="0" />{{ filename }}</a><br />
+{% endfor %}
+</div>
+<div class="container wide">
+<p>{{ lipsum(n=5, html=True, min=20, max=100) }}</p>
+</div>
+</body>
+</html>
