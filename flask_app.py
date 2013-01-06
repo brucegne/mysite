@@ -29,7 +29,7 @@ mail=Mail(app)
 skey = os.urandom(24)
 app.secret_key = skey
 
-# DATABASE = '/home/brucegne/dbs/mytest.sqlite'
+DATABASE = '/home/brucegne/dbs/mytest.sqlite'
 
 @app.route('/initdb')
 def init_db():
