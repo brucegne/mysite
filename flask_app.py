@@ -14,6 +14,10 @@ from werkzeug import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 
+fh = open('/home/brucegne/mysite/mail.pwd','r')
+rpass = fh.read().split("\n")[0]
+fh.close()
+
 app.config.update(
     DEBUG=True,
 	#EMAIL SETTINGS
@@ -21,7 +25,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'info@hfpaginfo.com',
-	MAIL_PASSWORD = 'trust1god'
+	MAIL_PASSWORD = rpass 
 	)
 
 mail=Mail(app)
