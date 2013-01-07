@@ -2,5 +2,7 @@
 *.pwd
 *.pyc
 
-uploads
+backup.py
+
+./uploads
 

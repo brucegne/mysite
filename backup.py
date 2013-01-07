@@ -20,7 +20,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'brucegne@gmail.com',
-	MAIL_PASSWORD = 'p2544shiver'
+	MAIL_PASSWORD = '
 	)
 
 mail=Mail(app)
@@ -96,7 +96,7 @@ def testing():
 
     msg = Message(
            'Hello',
-           sender='brucegne@dgoogle.com',
+           sender='brucegne@google.com',
            recipients=
            ['brucegne@gmail.com'])
 #    msg.body = "This is the email body"
